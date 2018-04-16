@@ -1,0 +1,37 @@
+<div style="width: 600px;margin: 0 auto;" *ngIf="list">
+  <ul class="select-list">
+    <li (click)="setShowList(0)" [class.selected]="selectedType == 0">全部</li>
+    <li (click)="setShowList(1)" [class.selected]="selectedType == 1">类别1</li>
+    <li (click)="setShowList(2)" [class.selected]="selectedType == 2">类别2</li>
+    <li (click)="setShowList(3)" [class.selected]="selectedType == 3">类别3</li>
+  </ul>
+  <div class="btn-wrap">
+    <input type="text" [(ngModel)]="keyword" (input)="setShowList(selectedType)">
+    <div class="btn-add" (click)="addForm()">新增模块</div>
+  </div>
+  
+
+  <div *ngIf="list && list.length">
+    <ul>
+      <li class="list-head">
+        <span>名称</span>
+        <span>类别</span>
+        <span>备注</span>
+        <span>操作</span>
+      </li>
+  </ul>
+    <ul class="list-body">
+      <li *ngFor="let item of showList">
+        <span>{{ item.name }}</span>
+        <span>{{ item.type }}</span>
+        <span>{{ item.remark }}</span>
+        <span *ngIf="item.type == 1" class="ope" (click)="update(item)">编辑</span>
+        <span *ngIf="item.type == 2" class="ope" (click)="del(item.id)">删除</span>
+      </li>
+  </ul>
+  </div>
+
+  <div *ngIf="!list || list.length === 0">
+    no data
+  </div>
+</div>

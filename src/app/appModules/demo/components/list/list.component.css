@@ -1,0 +1,88 @@
+.select-list {
+    margin: 0;
+    padding: 0;
+}
+
+.select-list li {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: lightblue;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    list-style: none;
+}
+
+.select-list li.selected {
+    background-color: burlywood;
+}
+
+input {
+    width: 300px;
+    padding: 2px 5px;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    margin: 10px 0;
+    outline: 0;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+ul {
+    padding: 0 5px;
+    margin-bottom: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li span {
+    display: inline-block;
+    padding: 5px 10px;
+    width: 100px;
+    text-align: center;
+}
+
+.ope {
+    cursor: pointer;
+}
+
+.list-head {
+    background: #ddd;
+}
+
+.list-body {
+    padding: 0 5px;
+    margin: 0;
+}
+
+.list-body li {
+    background-color: #efefef;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.btn-wrap {
+    /* display: flex; */
+}
+
+.btn-add {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: lightblue;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    line-height: 30px;
+    float: right;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.btn-add:hover {
+    color: #333;
+}

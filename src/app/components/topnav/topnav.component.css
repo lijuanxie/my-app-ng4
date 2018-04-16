@@ -1,0 +1,23 @@
+.navlist {
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.navlist a {
+    text-align: center;
+    width: 150px;
+    text-decoration: none;
+    height: 30px;
+    line-height: 30px;
+    background-color: #ccc;
+    margin-right: 25px;
+    color: #fff;
+}
+
+.navlist a.selected {
+    background-color: cadetblue;
+}

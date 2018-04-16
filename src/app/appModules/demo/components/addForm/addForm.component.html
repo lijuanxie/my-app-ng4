@@ -1,0 +1,29 @@
+<div class="addform">
+  <h2>新增表单页</h2>
+  <form [formGroup]="addForm">
+    <div class="form-group">
+      <label class="center-block">名称:
+        <input class="form-control" formControlName="name">
+      </label>
+      <p class="col-error" *ngIf="this.addForm.controls.name.dirty && this.addForm.controls.name.hasError('hasletter')">名称格式不正确</p>
+    </div>
+    <div class="form-group">
+      <label class="center-block">类型:
+        <select class="form-control" formControlName="type">
+          <option value="">全部类型</option>
+          <option *ngFor="let state of states" [value]="state.id">{{state.title}}</option>
+        </select>
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">备注:
+        <input class="form-control" formControlName="remark">
+      </label>
+    </div>
+  </form>
+  <div class="btn-wrap">
+    <div class="btn-submit" (click)="cancel()">取消</div>
+    <div class="btn-submit" (click)="submit()" ng-disabled="!this.addForm.valid">提交</div>
+  </div>
+
+</div>

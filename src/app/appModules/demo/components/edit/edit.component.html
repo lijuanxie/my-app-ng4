@@ -1,0 +1,80 @@
+<!-- 响应式表单 -->
+
+<!-- <div>
+  <h2>新增表单页</h2>
+  <form [formGroup]="editForm">
+    <div class="form-group">
+      <label class="center-block">名称:
+        <input class="form-control" formControlName="name">
+      </label>
+      <p class="col-error" *ngIf="this.editForm.controls.name.dirty && this.editForm.controls.name.hasError('hasletter')">名称格式不正确</p>
+    </div>
+    <div class="form-group">
+      <label class="center-block">类型:
+        <select class="form-control" formControlName="type">
+          <option value="0">全部类型</option>
+          <option *ngFor="let state of states" [value]="state.id" ng-selected="type == state.id">{{state.title}}</option>
+        </select>
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">备注:
+        <input class="form-control" formControlName="remark">
+      </label>
+    </div>
+  </form>
+  <div>
+    <div class="btn-submit" (click)="cancel()">取消</div>
+    <div class="btn-submit" (click)="update()">更新</div>
+  </div>
+
+</div> -->
+
+<!-- ant -->
+
+<form nz-form [formGroup]="editForm" (ngSubmit)="update()">
+
+  <div nz-form-item nz-row>
+    <div nz-form-label nz-col [nzSpan]="6">
+      <label nz-form-item-required>名称</label>
+    </div>
+    <div nz-form-control nz-col [nzSpan]="14">
+      <nz-input formControlName="name" [nzPlaceHolder]="'name'" [nzSize]="'large'">
+        <ng-template #prefix>
+          <i class="anticon anticon-user"></i>
+        </ng-template>
+      </nz-input>
+      <div nz-form-explain *ngIf="this.editForm.controls.name.dirty && this.editForm.controls.name.hasError('hasletter')">Please input your username!</div>
+    </div>
+  </div>
+
+  <div nz-form-item nz-row>
+    <div nz-form-label nz-col [nzSpan]="6">
+      <label nz-form-item-required>类型</label>
+    </div>
+    <div nz-form-control nz-col [nzSpan]="14">
+      <nz-select formControlName="type" [nzSize]="'large'">
+        <nz-option *ngFor="let state of states" [nzLabel]="state.title" [nzValue]="state.id"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+
+  <div nz-form-item nz-row>
+    <div nz-form-label nz-col [nzSpan]="6">
+      <label nz-form-item-required>备注</label>
+    </div>
+    <div nz-form-control nz-col [nzSpan]="14">
+      <nz-input formControlName="remark" [nzPlaceHolder]="'remark'" [nzSize]="'large'">
+        <ng-template #prefix>
+          <i class="anticon anticon-user"></i>
+        </ng-template>
+      </nz-input>
+
+    </div>
+  </div>
+  <div style="padding-left: 200px;">
+    <button nz-button [nzType]="'primary'" [nzSize]="'large'" [disabled]="!editForm.valid">确认</button>
+    <button nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="cancel()">返回</button>
+  </div>
+
+</form>
